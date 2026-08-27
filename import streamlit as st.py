@@ -29,6 +29,8 @@ def init_db():
         rol TEXT
     )
     """)
+    # Crear admin por defecto si no existe
+    cursor.execute("INSERT OR IGNORE INTO usuarios (usuario, password, rol) VALUES ('admin', '1234', 'admin')")
     conn.commit()
     conn.close()
 
